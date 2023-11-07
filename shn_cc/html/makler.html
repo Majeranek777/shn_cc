@@ -1,0 +1,69 @@
+<div class="clas" id="Daredevil">
+    <div class="name">
+        <h2>Makler</h2>
+        <p>Wymagana umiejętność: Ryzykant</p>
+        <div class="back">
+            <img src="./back.png" alt="" onclick="closeclass()">
+        </div>
+    </div>
+    <div class="desc">
+        <div class="lvls">
+            <div class="lvl">
+                <div class="number" id="lvl1">
+                    <img src="./one.png" alt="">
+                </div>
+                <div class="desclvl">
+                    <h2>KUPIEC</h2>
+                    <p>Możliwość grania nieopodatkowaną gotówką oraz dostęp do broni palnej.</p>
+                </div>
+                
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl2">
+                    <img src="./two.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>CINKCIARZ</h2>
+                    <p>Możliwość wykonania jednorazowo większej ilości transakcji oraz dostęp do kupna lepszej broni palnej.</p>
+                </div>
+
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl3">
+                    <img src="./three.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>BROKER</h2>
+                    <p>Możliwość kupna broni długiej wraz z zwiększoną ilością transakcji.</p>     
+                </div>
+
+
+            </div>
+        </div>
+        <div class="progres">
+            <div class="classdesc">Wyklucza: <br>
+                Złota rączka</div>
+                <div class="classdesc">Wraz z rozwojem tej specjalizacji zyskujemy możliwość dokonywania większej ilości transakcji oraz dostęp do lepszej zbrojowni.</div>
+            <div class="classdesc">Aby rozwinąć się w tym kierunku, poświęć czas na grę na giełdzie.</div>
+        </div>
+    </div>
+    <div class="progresbar">
+        <div class="progress progress-striped active">
+            <div role="progressbar " class="progress-bar progress-bar-secondary"></div>
+        </div>
+    </div>
+    <div class="accept">
+        <button onclick="openconfirm()"><img src="./check.png" alt="" ></button>
+    </div>
+    <div class="confirm">
+        <h3>Czy napewno chcesz wybrać tą klase?</h3>
+        <div>
+            <button onclick="setclass('Daredevil')"><img src="./check.png" alt=""></button>
+            <button onclick="closeconfirm()"><img src="./iks.png" alt="" ></button>
+        </div>
+    </div>
+</div>

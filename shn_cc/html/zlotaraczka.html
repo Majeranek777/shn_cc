@@ -1,0 +1,69 @@
+<div class="clas" id="Hacker">
+    <div class="name">
+        <h2>Złota rączka</h2>
+        <p>Wymagana umiejętność: Haker</p>
+        <div class="back">
+            <img src="./back.png" alt="" onclick="closeclass()">
+        </div>
+    </div>
+    <div class="desc">
+        <div class="lvls">
+            <div class="lvl">
+                <div class="number" id="lvl1">
+                    <img src="./one.png" alt="">
+                </div>
+                <div class="desclvl">
+                    <h2>MAJSTER</h2>
+                    <p>Szybsze rabowanie kasetek oraz możliwość napadu na sklepy.</p>
+                </div>
+                
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl2">
+                    <img src="./two.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>FACHOWIEC</h2>
+                    <p>Możliwość napadu na banki oraz jubilera, a także większy łup podczas napadania na sklepy.</p>
+                </div>
+
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl3">
+                    <img src="./three.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>EKSPERT</h2>
+                    <p>Możliwość napadu na skarbiec oraz większe korzyści z napadów na bank i jubilera.</p>     
+                </div>
+
+
+            </div>
+        </div>
+        <div class="progres">
+            <div class="classdesc">Wyklucza: <br>
+                Makler</div>
+                <div class="classdesc">Wraz z rozwojem specjalizacji zyskujemy dostęp do bardziej wymagających napadów oraz większy zysk.</div>
+            <div class="classdesc">Aby rozwinąć się w tym kierunku, poświęcz czas na łamanie zabezpieczeń.</div>
+        </div>
+    </div>
+    <div class="progresbar">
+        <div class="progress progress-striped active">
+            <div role="progressbar " class="progress-bar progress-bar-secondary"></div>
+        </div>
+    </div>
+    <div class="accept">
+        <button onclick="openconfirm()"><img src="./check.png" alt="" ></button>
+    </div>
+    <div class="confirm">
+        <h3>Czy napewno chcesz wybrać tą klase?</h3>
+        <div>
+            <button onclick="setclass('Hacker')"><img src="./check.png" alt=""></button>
+            <button onclick="closeconfirm()"><img src="./iks.png" alt="" ></button>
+        </div>
+    </div>
+</div>

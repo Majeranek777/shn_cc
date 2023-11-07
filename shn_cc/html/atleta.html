@@ -1,0 +1,69 @@
+<div class="clas" id="Fitness">
+    <div class="name">
+        <h2>Atleta</h2>
+        <p>Wymagana umiejętność: Kondycja</p>
+        <div class="back">
+            <img src="./back.png" alt="" onclick="closeclass()">
+        </div>
+    </div>
+    <div class="desc">
+        <div class="lvls">
+            <div class="lvl">
+                <div class="number" id="lvl1">
+                    <img src="./one.png" alt="">
+                </div>
+                <div class="desclvl">
+                    <h2>SPRINTER</h2>
+                    <p>Poprawiona kondycja oraz mniejszy apetyt.</p>
+                </div>
+                
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl2">
+                    <img src="./two.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>DŁUGODYSTANSOWIEC</h2>
+                    <p>Szybsze odzyskiwanie siły oraz lepszy metabolizm.</p>
+                </div>
+
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl3">
+                    <img src="./three.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>MARATOŃCZYK</h2>
+                    <p>Nieograniczona siła w nogach oraz idealny metabolizm.</p>     
+                </div>
+
+
+            </div>
+        </div>
+        <div class="progres">
+            <div class="classdesc">Wyklucza: <br>
+                Kulturysta</div>
+                <div class="classdesc">Wraz z rozwojem specjalizacji zyskujemy zwiększoną kondycje oraz odczuwamy coraz mniejsze pragnienie.</div>
+            <div class="classdesc">Aby rozwinąć się w tym kierunku, poświęć czas na poprawę kondycji.</div>
+        </div>
+    </div>
+    <div class="progresbar">
+        <div class="progress progress-striped active">
+            <div role="progressbar " class="progress-bar progress-bar-secondary"></div>
+        </div>
+    </div>
+    <div class="accept">
+        <button onclick="openconfirm()"><img src="./check.png" alt="" ></button>
+    </div>
+    <div class="confirm">
+        <h3>Czy napewno chcesz wybrać tą klase?</h3>
+        <div>
+            <button onclick="setclass('Fitness')"><img src="./check.png" alt=""></button>
+            <button onclick="closeconfirm()"><img src="./iks.png" alt="" ></button>
+        </div>
+    </div>
+</div>

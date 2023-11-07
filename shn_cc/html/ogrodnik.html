@@ -1,0 +1,69 @@
+<div class="clas" id="Herbalist">
+    <div class="name">
+        <h2>Ogrodnik</h2>
+        <p>Wymagana umiejętność: Zielarz</p>
+        <div class="back">
+            <img src="./back.png" alt="" onclick="closeclass()">
+        </div>
+    </div>
+    <div class="desc">
+        <div class="lvls">
+            <div class="lvl">
+                <div class="number" id="lvl1">
+                    <img src="./one.png" alt="">
+                </div>
+                <div class="desclvl">
+                    <h2>BOTANIK</h2>
+                    <p>Krótszy czas oraz tańsze materiały potrzebne do sadzenia.</p>
+                </div>
+                
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl2">
+                    <img src="./two.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>CHEMIK</h2>
+                    <p>Możliwość wytwarzania narkotyków twardych i szybszy czas produkcji</p>
+                </div>
+
+            </div>
+            <div class="lvl">
+
+                <div class="number" id="lvl3">
+                    <img src="./three.png" alt="">
+
+                </div>
+                <div class="desclvl">
+                    <h2>DRUID</h2>
+                    <p>Zwiększone zbiory oraz możliwość wytwarzania lepszych jakościowo narkotyków.</p>     
+                </div>
+
+
+            </div>
+        </div>
+        <div class="progres">
+            <div class="classdesc">Wyklucza: <br>
+                Handlarz</div>
+                <div class="classdesc">Wraz z rozwojem specjalizacji będziemy otrzymywać dostęp do produkcji lepszych narkotyków, tańszych materiałów oraz krótszy czas produkcji.</div>
+            <div class="classdesc">Aby rozwinąć się w tym kierunku, poświęć czas na produkcje narkotyków</div>
+        </div>
+    </div>
+    <div class="progresbar">
+        <div class="progress progress-striped active">
+            <div role="progressbar " class="progress-bar progress-bar-secondary"></div>
+        </div>
+    </div>
+    <div class="accept">
+        <button onclick="openconfirm()"><img src="./check.png" alt="" ></button>
+    </div>
+    <div class="confirm">
+        <h3>Czy napewno chcesz wybrać tą klase?</h3>
+        <div>
+            <button onclick="setclass('Herbalist')"><img src="./check.png" alt=""></button>
+            <button onclick="closeconfirm()"><img src="./iks.png" alt="" ></button>
+        </div>
+    </div>
+</div>

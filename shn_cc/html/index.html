@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KartaPostaci</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="menu">
+            <div class="menurow">
+                <div class="class" onclick="opencard('handlarz','Charisma')">
+                    <img src="./handlarz_ikonka.png" alt="">
+                    <h2>Handlarz</h2>
+                </div>
+        
+                <div class="class" onclick="opencard('ogrodnik','Herbalist')">
+                    <img src="./ogrodnik_ikonka.png" alt="">
+                    <h2>Ogrodnik</h2>
+                </div>
+            </div>
+            
+    
+            <div class="menurow">
+                <div class="class" onclick="opencard('atleta','Fitness')">
+                    <img src="./atleta_ikonka.png" alt="">
+                    <h2>Atleta</h2>
+                </div>
+                <div class="class" onclick="opencard('kulturysta','Strength')">
+                    <img src="./kulturysta_ikonka.png" alt="">
+                    <h2>Kulturysta</h2>
+                </div>
+            </div>
+    
+            <div class="menurow">
+                <div class="class" onclick="opencard('zlotaraczka','Hacker')">
+                    <img src="./zlota_raczka_ikonka.png" alt="">
+                    <h2>Złota rączka</h2>
+                </div>
+                <div class="class" onclick="opencard('makler','Daredevil')">
+                    <img src="./makler_ikonka.png" alt="">
+                    <h2>Makler</h2>
+                </div>
+            </div>
+    
+            <div class="menurow">
+                <div class="class" onclick="opencard('przedsiebiorca','Visitor')">
+                    <img src="./przedsiebiorca_ikonka.png" alt="">
+                    <h2>Przedsiębiorca</h2>
+                </div>
+                <div class="class" onclick="opencard('lowcaokazji','Profligacy')">
+                    <img src="./lowca_okazji_ikonka.png" alt="">
+                    <h2>Łowca okazji</h2>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            
+        </div>
+    </div>
+
+    <script>
+    var active = false
+    var table_skils = {}
+    function sleep(ms) {
+        return new Promise(
+            resolve => setTimeout(resolve, ms)
+        );
+    }
+
+    async function ShowLevels(clas,lvl,progres) {
+        $("#"+clas+" .progress-bar").css("width",progres+"%")
+        for (let index = 1; index <= lvl; index++) {                
+            $("#"+clas+" #lvl"+index).addClass("active");
+            await sleep(500)
+        }
+    }
+
+
+    $(function() {
+        window.addEventListener('message', function(event) {
+            if (event.data.open) {
+                $('body').css("display", "grid");
+                setTimeout(() => {
+                    $('body').css("opacity", "1");
+                    ShowLevels(event.data.class,event.data.lvl,event.data.precent)
+                }, 10);
+            }
+        });
+    });
+
+
+
+    $(document).keyup(function(e) {
+        if (e.key === "Escape") {
+            if(active){
+                closeclass()
+                setTimeout(() => {
+                    $('body').css("opacity", "0");
+                    setTimeout(() => {
+                        $('body').css("display", "none");
+                    }, 500);
+                    
+                }, 1000);
+            }else{
+                $('body').css("opacity", "0");
+                setTimeout(() => {
+                    $('body').css("display", "none");
+                }, 500);
+            }
+            
+            $.post('https://kp/CloseMenu', JSON.stringify({}));
+        }
+    });
+    function opencard(openclass, clas) {
+        if(!active){
+            active = true
+            $('.wrapper').css("left","0%");
+            $('.wrapper').css("transform","translate(0%, 0%)");
+            $('.menu').css("border-radius","16px 0px 0px 16px");
+            $('.content').css("width","100%");
+            
+            setTimeout(() => {
+                $(".content").load("./"+openclass+".html") 
+                setTimeout(() => {
+                    
+                    $(".clas").css("opacity","1")
+                    $.post('https://kp/GetData', JSON.stringify({class:clas}));
+                    
+                }, 100);
+            }, 500);
+        }else{
+            $(".clas").css("opacity","0") 
+            setTimeout(() => {
+                $(".clas").remove();
+                $('.content').css("width","0%");
+                
+                setTimeout(() => {
+                    $('.content').css("width","100%");
+                    
+                    setTimeout(() => {
+                        $(".content").load("./"+openclass+".html") 
+                        setTimeout(() => {
+                            $.post('https://kp/GetData', JSON.stringify({class:clas}));
+                            
+                            $(".clas").css("opacity","1") 
+                        }, 50);
+                    }, 500);
+                }, 500);
+                
+            }, 500);
+        }
+    }
+    function closeclass(openclass) {
+        $(".clas").css("opacity","0") 
+        active = false
+        setTimeout(() => {
+            $(".clas").remove();
+            $('.wrapper').css("left","55%");
+            $('.wrapper').css("transform","translate(-50%, 0%)");
+            $('.menu').css("border-radius","16px 16px 16px 16px");
+            $('.content').css("width","0%");
+            
+        }, 500);
+    }
+
+    function openconfirm() {
+        $(".accept").css("opacity","0")
+        setTimeout(() => {
+            $(".accept").css("display","none")
+            $(".confirm").css("display","grid")
+            setTimeout(() => {
+                $(".confirm").css("opacity","1")
+            }, 10);
+        }, 500);
+    }
+
+    function closeconfirm() {
+        $(".confirm").css("opacity","0")
+        setTimeout(() => {
+            $(".confirm").css("display","none")
+            $(".accept").css("display","grid")
+            setTimeout(() => {
+                $(".accept").css("opacity","1")
+            }, 10);
+        }, 500);
+    }
+
+    function setclass(clas) {
+        $.post('https://kp/SetData', JSON.stringify({class:clas}));
+        closeconfirm()
+    }
+    </script>
+    
+</body>
+</html>
