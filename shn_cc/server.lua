@@ -1,9 +1,7 @@
 local id = nil
 local nigger = {}
 
-ESX = nil
-
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+ESX = exports["es_extended"]:getSharedObject()
 
 --Zwraca Licke
 function GetID(id)
@@ -11,6 +9,7 @@ function GetID(id)
     for k,v in ipairs(GetPlayerIdentifiers(id)) do
         if string.match(v, 'license:') then
             identifier = string.sub(v, 9)
+            identifier = ("char1:"..identifier)
             break
         end
     end
