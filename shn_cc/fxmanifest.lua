@@ -27,6 +27,8 @@ client_scripts {
 	'client.lua'
 }
 
+shared_script '@es_extended/imports.lua'
+
 server_scripts{
     'server.lua',
     '@async/async.lua',
@@ -35,6 +37,5 @@ server_scripts{
 
 dependencies {
 	'mysql-async',
-	'async',
     'es_extended'
 }
