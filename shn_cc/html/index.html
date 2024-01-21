@@ -112,7 +112,7 @@
                 }, 500);
             }
             
-            $.post('https://kp/CloseMenu', JSON.stringify({}));
+            $.post('https://shn_cc/CloseMenu', JSON.stringify({}));
         }
     });
     function opencard(openclass, clas) {
@@ -128,7 +128,7 @@
                 setTimeout(() => {
                     
                     $(".clas").css("opacity","1")
-                    $.post('https://kp/GetData', JSON.stringify({class:clas}));
+                    $.post('https://shn_cc/GetData', JSON.stringify({class:clas}));
                     
                 }, 100);
             }, 500);
@@ -144,7 +144,7 @@
                     setTimeout(() => {
                         $(".content").load("./"+openclass+".html") 
                         setTimeout(() => {
-                            $.post('https://kp/GetData', JSON.stringify({class:clas}));
+                            $.post('https://shn_cc/GetData', JSON.stringify({class:clas}));
                             
                             $(".clas").css("opacity","1") 
                         }, 50);
@@ -190,7 +190,7 @@
     }
 
     function setclass(clas) {
-        $.post('https://kp/SetData', JSON.stringify({class:clas}));
+        $.post('https://shn_cc/SetData', JSON.stringify({class:clas}));
         closeconfirm()
     }
     </script>
