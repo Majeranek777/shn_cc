@@ -2,13 +2,7 @@ local loading = true
 local id = GetPlayerServerId(PlayerId(-1))
 local _data = {}
 
-ESX = nil
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-end)
+ESX = exports["es_extended"]:getSharedObject()
 
 ---------Komendy w grze---------
 RegisterCommand("kp", function(source)
@@ -134,7 +128,6 @@ end)
 
 --Zwraca lvl (0, 1, 2 lub 3) na podstawie podanych w configu wartosci
 function getCurrentlvl(data)
-
 	if getDatalvl(data) >= Config.Classlvl[data][3] then
 		return 3
 	elseif getDatalvl(data) >= Config.Classlvl[data][2] then
